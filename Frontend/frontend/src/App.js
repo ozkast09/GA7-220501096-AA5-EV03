@@ -1,19 +1,24 @@
-import React from "react";
-import { BrowserRouter as Router,Route,Routes } from "react-router-dom";
-import Layout from './pages/StockPage';
-import CreateProductPage from "./pages/CreateProductPage";
-import StockPage from "./pages/StockPage";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Layout from './components/Layout';
+import StockPage from './pages/StockPage';
+import CreateProductPage from './pages/CreateProductPage';
+import UpdateProductPage from './pages/UpdateProductPage'; // Importa la nueva página
+// ... otras importaciones ...
 
-function App(){
-  return(
-    <Router>
-      <Routes>
-        <Route path="/" element={<Layout><StockPage/></Layout>}/>
-        <Route path="/stock" element={<Layout><CreateProductPage/></Layout>}/>
-        <Route path="/crear-producto" element={<Layout><CreateProductPage/></Layout>}/>
-      </Routes>
-    </Router>
-  );
+function App() {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<Layout><StockPage /></Layout>} />
+                <Route path="/stock" element={<Layout><StockPage /></Layout>} />
+                <Route path="/ingresar-producto" element={<Layout><UpdateProductPage /></Layout>} /> {/* Usa UpdateProductPage */}
+                <Route path="/crear-producto" element={<Layout><CreateProductPage /></Layout>} /> {/* Usa CreateProductPage */}
+                {/* Asegúrate de tener un componente para Registrar Salida */}
+                <Route path="/registrar-salida" element={<Layout><div>Página de Registrar Salida</div></Layout>} />
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;

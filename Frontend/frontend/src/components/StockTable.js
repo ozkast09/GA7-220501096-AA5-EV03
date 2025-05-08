@@ -21,7 +21,8 @@ function StockTable({stock}){
                   <td>{item.cantidad}</td>
                   <td>{item.unidadMedida}</td>
                   <td>{item.ubicacion}</td>
-                  <td>{item.marcaProveedor}</td> 
+                  <td>{item.marca}</td> 
+                  <td>{item.proveedor}</td>
                 </tr>  
                 ))}
             </tbody>
