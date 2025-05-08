@@ -1,0 +1,16 @@
+.navbar{
+    background-color: #eee;
+    padding: 0.5rem 20xp;
+    border-bottom: 1px solid #ddd;
+}
+.navbar-links{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1rem;
+}
+.navbar-links a {
+    text-decoration: none;
+    color: #333;
+}

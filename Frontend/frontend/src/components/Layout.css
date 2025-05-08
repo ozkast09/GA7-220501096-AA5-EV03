@@ -1,0 +1,28 @@
+.app-layout{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: sans-serif;
+}
+.layout-header{
+    background-color: #f0f0f0;
+    padding: 1rem 20px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+.layout-main{
+    flex-grow: 1;
+    padding: 20px;
+}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.layout-footer{
+    background-color: #333;
+    color: white;
+    padding: 1rem 20xp;
+    text-align: center;
+    border-top: 1xp solid #555;
+}
