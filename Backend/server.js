@@ -44,7 +44,8 @@ connect().then(db => {
         }
         try {
             const result = await db.collection('unidades_medida').insertOne({ nombre });
-            res.status(201).json(result.ops[0]);
+            const nuevaUnidad = await db.collection('unidades_medida').findOne({ _id: result.insertedId });
+            res.status(201).json(nuevaUnidad);
         } catch (error) {
             console.error('Error al crear unidad de medida:', error);
             res.status(500).json({ error: 'Error al crear unidad de medida' });
@@ -69,7 +70,8 @@ connect().then(db => {
         }
         try {
             const result = await db.collection('marcas').insertOne({ nombre });
-            res.status(201).json(result.ops[0]);
+            const nuevaMarca = await db.collection('marcas').findOne({ _id: result.insertedId });
+            res.status(201).json(nuevaMarca);
         } catch (error) {
             console.error('Error al crear marca:', error);
             res.status(500).json({ error: 'Error al crear marca' });
@@ -94,7 +96,8 @@ connect().then(db => {
         }
         try {
             const result = await db.collection('ubicaciones').insertOne({ nombre });
-            res.status(201).json(result.ops[0]);
+            const nuevaUbicacion = await db.collection('ubicaciones').findOne({ _id: result.insertedId });
+            res.status(201).json(nuevaUbicacion);
         } catch (error) {
             console.error('Error al crear ubicación:', error);
             res.status(500).json({ error: 'Error al crear ubicación' });
@@ -119,7 +122,8 @@ connect().then(db => {
         }
         try {
             const result = await db.collection('proveedores').insertOne({ nombre });
-            res.status(201).json(result.ops[0]);
+            const nuevoProveedor = await db.collection('proveedores').findOne({ _id: result.insertedId });
+            res.status(201).json(nuevoProveedor);
         } catch (error) {
             console.error('Error al crear proveedor:', error);
             res.status(500).json({ error: 'Error al crear proveedor' });
@@ -139,7 +143,7 @@ connect().then(db => {
 
     // Ruta para actualizar un producto existente
     app.put('/api/productos/:id', async (req, res) => {
-        const { cantidad, ubicacion } = req.body;
+        const { cantidad } = req.body;
         const { id } = req.params;
 
         if (!cantidad) {
@@ -147,27 +151,24 @@ connect().then(db => {
         }
 
         try {
-            const product = await db.collection('productos').findOne({_id: new ObjectId(id)});
+            const product = await db.collection('productos').findOne({ _id: new ObjectId(id) });
 
-            if (!product){
-                return res.status(404).json({error:'Producto no encontrado'});
+            if (!product) {
+                return res.status(404).json({ error: 'Producto no encontrado' });
             }
 
-            const nuevaCantidad= parseInt(product.cantidad)+parseInt(cantidad);
+            const nuevaCantidad = parseInt(product.cantidad) + parseInt(cantidad);
 
-            const result=await db.collection('productos').updateOne(
-                {_id: new ObjectId(id)},
-                {$set:{cantidad:nuevaCantidad}}
+            const result = await db.collection('productos').updateOne(
+                { _id: new ObjectId(id) },
+                { $set: { cantidad: nuevaCantidad } }
             );
 
-            if (result.modifiedCount>0){
-                res.json({message: 'Stock actualizado exitosamente'});
-            } else{
-                res.status(404).json({error:'Producto no encontrado al actualizar'})
+            if (result.modifiedCount > 0) {
+                res.json({ message: 'Stock actualizado exitosamente' });
+            } else {
+                res.status(404).json({ error: 'Producto no encontrado al actualizar' });
             }
-            
-                
-           
         } catch (error) {
             console.error('Error al actualizar el producto:', error);
             res.status(500).json({ error: 'Error al actualizar el producto' });
