@@ -50,7 +50,7 @@
 }
 
 .select-with-create button {
-    padding: 8px 12px;
+    padding: 2px 12px;
     background-color: #007bff;
     color: white;
     border: none;
@@ -64,7 +64,7 @@
 }
 
 .product-form button[type="submit"] {
-    background-color: #28a745;
+    background-color: #007bff;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -75,7 +75,7 @@
 }
 
 .product-form button[type="submit"]:hover {
-    background-color: #1e7e34;
+    background-color: #0056b3;
 }
 
 .form-message {

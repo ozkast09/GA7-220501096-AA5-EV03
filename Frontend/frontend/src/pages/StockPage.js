@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import StockTable from '../components/StockTable';
 import axios from "axios";
+import './StockPage.css';
 
 function StockPage(){
     const [stock, setStock]=useState([]);
@@ -28,7 +29,7 @@ function StockPage(){
     }
     return(
         <div>
-            <h2>Stock de Bodega</h2>
+            <h2 className="Stock-tittle">Inventario</h2>
             <StockTable stock={stock}/>
         </div>
     );

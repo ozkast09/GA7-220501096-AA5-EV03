@@ -196,6 +196,43 @@ connect().then(db => {
         }
     });
 
+    // Ruta para registrar la salida de un producto (restar del stock)
+    app.put('/api/productos/salida/:id', async (req, res) => {
+        const { cantidad } = req.body;
+        const { id } = req.params;
+
+        if (!cantidad || parseInt(cantidad) <= 0) {
+            return res.status(400).json({ error: 'La cantidad a retirar debe ser un número positivo.' });
+        }
+
+        try {
+            const product = await db.collection('productos').findOne({ _id: new ObjectId(id) });
+            if (!product) {
+                return res.status(404).json({ error: 'Producto no encontrado' });
+            }
+
+            const nuevaCantidad = parseInt(product.cantidad) - parseInt(cantidad);
+
+            if (nuevaCantidad < 0) {
+                return res.status(400).json({ error: 'No hay suficiente stock para retirar esa cantidad.' });
+            }
+
+            const result = await db.collection('productos').updateOne(
+                { _id: new ObjectId(id) },
+                { $set: { cantidad: nuevaCantidad } }
+            );
+
+            if (result.modifiedCount > 0) {
+                res.json({ message: 'Salida de stock registrada exitosamente' });
+            } else {
+                res.status(404).json({ error: 'Producto no encontrado (al actualizar el stock)' });
+            }
+        } catch (error) {
+            console.error('Error al registrar la salida de stock:', error);
+            res.status(500).json({ error: 'Error al registrar la salida de stock' });
+        }
+    });
+
     app.listen(port, () => {
         console.log(`Servidor backend escuchando en http://localhost:${port}`);
     });

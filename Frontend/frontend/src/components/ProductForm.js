@@ -111,7 +111,7 @@ function ProductForm() {
                         ))}
                     </select>
                     <input type="text" value={nuevaUnidadMedida} onChange={(e) => setNuevaUnidadMedida(e.target.value)} placeholder="Nueva Unidad" />
-                    <button type="button" onClick={handleCrearNuevaUnidadMedida}>Crear Nueva Unidad</button>
+                    <button type="button" onClick={handleCrearNuevaUnidadMedida}>Crear Medida</button>
                 </div>
             </div>
             <div className="form-group">
@@ -124,7 +124,7 @@ function ProductForm() {
                         ))}
                     </select>
                     <input type="text" value={nuevaMarca} onChange={(e) => setNuevaMarca(e.target.value)} placeholder="Nueva Marca" />
-                    <button type="button" onClick={handleCrearNuevaMarca}>Crear Nueva Marca</button>
+                    <button type="button" onClick={handleCrearNuevaMarca}>Crear Marca</button>
                 </div>
             </div>
             <div className="form-group">
@@ -137,7 +137,7 @@ function ProductForm() {
                         ))}
                     </select>
                     <input type="text" value={nuevaUbicacion} onChange={(e) => setNuevaUbicacion(e.target.value)} placeholder="Nueva Ubicación" />
-                    <button type="button" onClick={handleCrearNuevaUbicacion}>Crear Nueva Ubicación</button>
+                    <button type="button" onClick={handleCrearNuevaUbicacion}>Crear Ubicación</button>
                 </div>
             </div>
             <div className="form-group">
@@ -150,7 +150,7 @@ function ProductForm() {
                         ))}
                     </select>
                     <input type="text" value={nuevoProveedor} onChange={(e) => setNuevoProveedor(e.target.value)} placeholder="Nuevo Proveedor" />
-                    <button type="button" onClick={handleCrearNuevoProveedor}>Crear Nuevo Proveedor</button>
+                    <button type="button" onClick={handleCrearNuevoProveedor}>Crear Proveedor</button>
                 </div>
             </div>
             <button type="submit">Crear Producto</button>

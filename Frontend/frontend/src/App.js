@@ -4,6 +4,7 @@ import Layout from './components/Layout';
 import StockPage from './pages/StockPage';
 import CreateProductPage from './pages/CreateProductPage';
 import UpdateProductPage from './pages/UpdateProductPage'; // Importa la nueva página
+import RegistrarSalidaForm from './components/RegistrarSalidaForm';
 // ... otras importaciones ...
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
                 <Route path="/ingresar-producto" element={<Layout><UpdateProductPage /></Layout>} /> {/* Usa UpdateProductPage */}
                 <Route path="/crear-producto" element={<Layout><CreateProductPage /></Layout>} /> {/* Usa CreateProductPage */}
                 {/* Asegúrate de tener un componente para Registrar Salida */}
-                <Route path="/registrar-salida" element={<Layout><div>Página de Registrar Salida</div></Layout>} />
+                <Route path="/registrar-salida" element={<Layout><RegistrarSalidaForm/></Layout>} />
             </Routes>
         </Router>
     );

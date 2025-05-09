@@ -1,17 +1,25 @@
-.navbar{
-    background-color: #eee;
-    padding: 0.5rem 20xp;
-    border-bottom: 1px solid #ddd;
-}
-.navbar-links{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 1rem;
-}
-.navbar-links a {
-    text-decoration: none;
-    color: #333;
+.navbar {
+    background-color: #43948d; 
+    padding: 10px 20px; 
+    width: 100%; 
 }
 
+.navbar-container {
+    list-style-type: none;
+    display: flex; /* Para alinear los elementos en fila */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente (si es necesario) */
+    max-width: 800px; /* Ancho máximo del contenedor para que no se extienda demasiado */
+    margin: 0 auto; /* Centra el contenedor principal dentro de su padre */
+}
+
+.navbar-container a { /* Estilos para los enlaces (opcional) */
+    margin: 0 15px;
+    text-decoration: none;
+    color: #fbfbfb;
+}
+
+/* Si usas <Link> de React Router, puedes usar 'a' como selector también */
+.navbar-container a {
+    /* ... tus estilos ... */
+}

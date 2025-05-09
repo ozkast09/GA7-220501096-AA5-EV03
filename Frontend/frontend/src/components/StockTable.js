@@ -4,14 +4,15 @@ import'./StockTable.css';
 
 function StockTable({stock}){
     return(
-        <table className="=stock-table">
-            <thead>
+        <table className="inventario-table">
+            <thead className="inventario-header">
                 <tr>
                     <th>Nombre del Producto</th>
                     <th>Cantidad</th>
                     <th>Unidad de Medida</th>
                     <th>Ubicacion</th>
-                    <th>Marca Proveedor</th>
+                    <th>Marca</th>
+                    <th>Proveedor</th>
                 </tr>
             </thead>
             <tbody>

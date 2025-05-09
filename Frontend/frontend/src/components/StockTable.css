@@ -1,16 +1,26 @@
-.stock-table{
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20xp;
-}
-.stock-table th, .stock-table td{
-    border: 1px solid #ccc;
-    padding: 8px;
+.inventario-table {
+    width: 100%; /* O el ancho que desees */
+    border-collapse: collapse; /* Para colapsar los bordes de las celdas */
+    margin-bottom: 20px; /* Espacio debajo de la tabla */
+  }
+  
+  .inventario-header th {
+    background-color: #176e76; /* Un tono de verde similar al de la imagen */
+    color: white;
+    padding: 10px;
     text-align: left;
-}
-.stock-table th{
-    background-color: #f0f0f0;
-}
-.stock-table tbody tr:nth-child(even){
-    background-color: #f9f9f9;
-}
+    border-bottom: 2px solid #ddd; /* Línea sutil debajo del encabezado */
+  }
+  
+  .inventario-table th, .inventario-table td {
+    padding: 8px;
+    border-bottom: 1px solid #eee; /* Líneas divisorias entre filas */
+  }
+  
+  .inventario-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Color de fondo para filas pares */
+  }
+  
+  .inventario-table tbody tr:hover {
+    background-color: #f0f0f0; /* Cambia el color al pasar el ratón (opcional) */
+  }
